@@ -23,6 +23,5 @@ const author=document.getElementById('author')
   refresh.addEventListener('click' ,()=>{
   quote_text.innerText=quotes[i].text;
   author.innerText=quotes[i].author;
-  console.log(i)
   i++;
  })
