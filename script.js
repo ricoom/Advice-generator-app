@@ -2,8 +2,11 @@
 const quote_text=document.getElementById('quote');
 const refresh=document.getElementById('dice_btn')
 const author=document.getElementById('author')
+ let quotes=[]
+ let i=0;
 
- let i=0
+ window.onload=nexQuote();
+
  async function nexQuote() {
   
   
@@ -12,12 +15,14 @@ const author=document.getElementById('author')
     return response.json();
   })
   .then(function(data) {
-  quote_text.innerText=data[i].text;
-  author.innerText=data[i].author;
-
+    quotes=[...data]
+  console.log("data loaded")
   });
 
   }
   refresh.addEventListener('click' ,()=>{
-i++;
+  quote_text.innerText=quotes[i].text;
+  author.innerText=quotes[i].author;
+  console.log(i)
+  i++;
  })
